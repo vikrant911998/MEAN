@@ -1,0 +1,621 @@
+var a= 10;
+undefined
+typeof a;
+"number"
+typeof(a);
+"number"
+number a = 20;
+VM272:1 Uncaught SyntaxError: Unexpected identifier
+var a = 'Vikrant';
+undefined
+typeof a;
+"string"
+a =true;
+true
+typeof a;
+"boolean"
+parseInt('45.34');
+45
+parseFloat('45.34');
+45.34
+23+45;
+68
+23+'45';
+"2345"
+a = 10;
+10
+a.toString();
+"10"
+var str = 'Hello Computer';
+undefined
+str.length;
+14
+str[3];
+"l"
+str.charAt(3);
+"l"
+for(var i=0;i<str.length;i++){
+    console.log(str[i]);
+}
+VM1114:2 H
+VM1114:2 e
+VM1114:2 l
+VM1114:2 l
+VM1114:2 o
+VM1114:2  
+VM1114:2 C
+VM1114:2 o
+VM1114:2 m
+VM1114:2 p
+VM1114:2 u
+VM1114:2 t
+VM1114:2 e
+VM1114:2 r
+undefined
+for(var item of str){
+    console.log(item);
+}
+VM1284:2 H
+VM1284:2 e
+VM1284:2 l
+VM1284:2 l
+VM1284:2 o
+VM1284:2  
+VM1284:2 C
+VM1284:2 o
+VM1284:2 m
+VM1284:2 p
+VM1284:2 u
+VM1284:2 t
+VM1284:2 e
+VM1284:2 r
+undefined
+str.toLowerCase();
+"hello computer"
+str.toUpperCase();
+"HELLO COMPUTER"
+str.concat(' from JS');
+"Hello Computer from JS"
+str
+"Hello Computer"
+temp = str.concat(' from JS');
+"Hello Computer from JS"
+temp
+"Hello Computer from JS"
+str.includes('puter');
+true
+str.includes('puter',10);
+false
+str.indexOf();
+-1
+str.indexOf(' ');
+5
+str.lastIndexOf(' ');
+5
+temp.lastIndexOf(' ');
+19
+temp.indexOf(' ');
+5
+'Vikrant' == 'Vikrant';
+true
+'Vikrant' === 'Vikrant';
+true
+'Vikrant' === 'vikrant';
+false
+str.localeCompare(str);
+0
+str.localeCompare("Hello Boy");
+1
+str
+"Hello Computer"
+str.localeCompare("Hello Vicky");
+-1
+str.replace('C','#');
+"Hello #omputer"
+str.slice();
+"Hello Computer"
+str.slice(3);
+"lo Computer"
+str.slice(3,10);
+"lo Comp"
+str.split(' ');
+(2) ["Hello", "Computer"]
+str.split('');
+(14) ["H", "e", "l", "l", "o", " ", "C", "o", "m", "p", "u", "t", "e", "r"]
+str.startsWith('Hell');
+true
+str.startsWith('CHell');
+false
+str.endsWith('er');
+true
+str.endsWith('erc');
+false
+str.substr(3,5);
+"lo Co"
+str
+"Hello Computer"
+str.substring(3,10);
+"lo Comp"
+str = '  Hello Computer  ';
+"  Hello Computer  "
+str.trim();
+"Hello Computer"
+str.trimLeft();
+"Hello Computer  "
+str.trimStart();
+"Hello Computer  "
+str.trimRight();
+"  Hello Computer"
+str.trimEnd();
+"  Hello Computer"
+str
+"  Hello Computer  "
+//procedural programming,functional,Object oriented
+undefined
+//functional Programming
+undefined
+var arr = [];
+undefined
+typeof arr;
+"object"
+arr = [12,4,1,4,true,'Hello'];
+(6) [12, 4, 1, 4, true, "Hello"]
+arr.push(100);
+7
+arr
+(7) [12, 4, 1, 4, true, "Hello", 100]
+arr.push(200,300,400);
+10
+arr
+(10) [12, 4, 1, 4, true, "Hello", 100, 200, 300, 400]
+arr.pop();
+400
+arr
+(9) [12, 4, 1, 4, true, "Hello", 100, 200, 300]
+arr.unshift(100);
+10
+arr
+(10) [100, 12, 4, 1, 4, true, "Hello", 100, 200, 300]
+arr.shift();
+100
+arr
+(9) [12, 4, 1, 4, true, "Hello", 100, 200, 300]
+arr
+(9) [12, 4, 1, 4, true, "Hello", 100, 200, 300]
+arr = [1,2,3,4];
+(4) [1, 2, 3, 4]
+arr1 = [2,3,4,5,7];
+(5) [2, 3, 4, 5, 7]
+arr2= [arr,arr1];
+(2) [Array(4), Array(5)]0: (4) [1, 2, 3, 4]1: (5) [2, 3, 4, 5, 7]length: 2__proto__: Array(0)
+arr[0];
+1
+arr1[4];
+7
+arr2[1][4];
+7
+for(var item of arr){
+    console.log(item);
+    }
+VM5187:2 1
+VM5187:2 2
+VM5187:2 3
+VM5187:2 4
+undefined
+arr
+(4) [1, 2, 3, 4]
+var obj = {};
+undefined
+typeof obj;
+"object"
+obj = {id:101,name:'Vikrant'};
+{id: 101, name: "Vikrant"}
+obj.id;
+101
+obj.age = 23;
+23
+obj
+{id: 101, name: "Vikrant", age: 23}id: 101name: "Vikrant"__proto__: Object
+delete obj.age;
+true
+obj
+{id: 101, name: "Vikrant"}
+obj.id;
+101
+obj['id'];
+101
+//for-in loop
+undefined
+for(var item in  obj){
+    console.log(item);
+}
+VM5912:2 id
+VM5912:2 name
+undefined
+for(var item in  obj){
+    console.log(item,obj['item']);
+}
+VM5983:2 id undefined
+VM5983:2 name undefined
+undefined
+for(var item in  obj){
+    console.log(item,obj[item]);
+}
+VM6016:2 id 101
+VM6016:2 name Vikrant
+undefined
+obj
+{id: 101, name: "Vikrant"}id: 101name: "Vikrant"__proto__: Object
+obj1 = {age:23};
+{age: 23}
+obj2 = {one:obj,two:obj1};
+{one: {…}, two: {…}}
+obj2
+{one: {…}, two: {…}}one: {id: 101, name: "Vikrant"}id: 101name: "Vikrant"__proto__: Objecttwo: {age: 23}age: 23__proto__: Object__proto__: Object
+//function Programming
+undefined
+//Types of Function
+// 1.Function Declaration Style
+undefined
+function demo(){
+    console.log('Demo Function ');
+}
+undefined
+demo();
+VM6595:2 Demo Function 
+undefined
+typeof demo;
+"function"
+typeof typeof demo;
+"string"
+// 2.function expression or Anonymous Style
+undefined
+var demo = function(){
+    console.log('Demo Function ');
+}
+undefined
+typeof demo;
+"function"
+demo();
+VM6922:2 Demo Function 
+undefined
+//3.Arrow Function Style
+undefined
+var demo = ()=>{
+    console.log('Demo Function ');
+}
+undefined
+demo();
+VM7092:2 Demo Function 
+undefined
+var demo = ()=>console.log('Demo Function ');
+undefined
+var demo = ()=>34;
+undefined
+demo();
+34
+var demo = ()=>{
+    console.log('Demo Function ');
+    return 34;
+}
+undefined
+demo();
+VM7283:2 Demo Function 
+34
+//arguments
+undefined
+function demo(a){
+    console.log('Demo Function ');
+}
+undefined
+demo(2);
+VM7447:2 Demo Function 
+undefined
+function demo(a){
+    console.log('Demo Function ',a);
+}
+undefined
+demo(2);
+VM7502:2 Demo Function  2
+undefined
+demo(2,34,123,26);
+VM7502:2 Demo Function  2
+undefined
+demo();
+VM7502:2 Demo Function  undefined
+undefined
+var temp1;
+undefined
+temp1;
+undefined
+function demo(a){
+    console.log('Demo Function ',a,arguments);
+}
+undefined
+demo();
+VM7803:2 Demo Function  undefined Arguments [callee: ƒ, Symbol(Symbol.iterator): ƒ]length: 0callee: ƒ demo(a)Symbol(Symbol.iterator): ƒ values()__proto__: Object
+undefined
+demo(2)
+VM7803:2 Demo Function  2 Arguments [2, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+undefined
+demo(2,35,457,568,10);
+VM7803:2 Demo Function  2 Arguments(5) [2, 35, 457, 568, 10, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+undefined
+function demo(){
+    for(var item of arguments){
+        console.log(item);
+    }
+}
+undefined
+demo(2,35,457,568,10);
+VM8132:3 2
+VM8132:3 35
+VM8132:3 457
+VM8132:3 568
+VM8132:3 10
+undefined
+console.dir(demo);
+VM8276:1 ƒ demo()length: 0name: "demo"arguments: nullcaller: nullprototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM8132:1[[Scopes]]: Scopes[1]
+undefined
+//rest parameter
+undefined
+function demo(a,b,...temp){
+    console.log(a,b,temp);
+}
+undefined
+demo(2,35,457,568,10);
+VM8578:2 2 35 (3) [457, 568, 10]
+undefined
+function demo(...temp){
+    console.log(temp);
+}
+undefined
+demo();
+VM8691:2 []
+undefined
+demo(1);
+VM8691:2 [1]
+undefined
+demo(1,2);
+VM8691:2 (2) [1, 2]
+undefined
+demo(1,2,3,4,5,6);
+VM8691:2 (6) [1, 2, 3, 4, 5, 6]0: 11: 22: 33: 44: 55: 6length: 6__proto__: Array(0)
+undefined
+//function definition inside another function
+undefined
+function Outer(){
+    function inner(){
+        console.log('inner function');
+    }
+    
+}
+undefined
+Outer.inner();
+VM9114:1 Uncaught TypeError: Outer.inner is not a function
+    at <anonymous>:1:7
+(anonymous) @ VM9114:1
+function Outer(){
+    function inner(){
+        console.log('inner function');
+    }
+    return inner;
+}
+undefined
+temp = Outer();
+ƒ inner(){
+        console.log('inner function');
+    }
+temp
+ƒ inner(){
+        console.log('inner function');
+    }
+typeof temp;
+"function"
+temp();
+VM9144:3 inner function
+undefined
+function Outer(){
+    function inner(){
+        console.log('inner function');
+    }
+    function inner1(){
+        console.log('inner function');
+    }
+    function inner2(){
+        console.log('inner function');
+    }
+    
+    return [inner,inner1,inner2];
+}
+undefined
+temp = Outer();
+(3) [ƒ, ƒ, ƒ]0: ƒ inner()1: ƒ inner1()2: ƒ inner2()length: 3__proto__: Array(0)
+temp[0];
+ƒ inner(){
+        console.log('inner function');
+    }
+temp[1];
+ƒ inner1(){
+        console.log('inner function');
+    }
+temp[1]();
+VM9390:6 inner function
+undefined
+function Outer(){
+    function inner(){
+        console.log('inner function');
+    }
+    function inner1(){
+        console.log('inner function');
+    }
+    function inner2(){
+        console.log('inner function');
+    }
+    
+    return {one:inner,two:inner1,three:inner2};
+}
+undefined
+temp = Outer();
+{one: ƒ, two: ƒ, three: ƒ}one: ƒ inner()two: ƒ inner1()three: ƒ inner2()__proto__: Object
+function Outer(){
+    function inner(){
+        console.log('inner function');
+    }
+    function inner1(){
+        console.log('inner function');
+    }
+    function inner2(){
+        console.log('inner function');
+    }
+    
+    return {inner,inner1,inner2};
+}
+undefined
+temp = Outer();
+{inner: ƒ, inner1: ƒ, inner2: ƒ}inner: ƒ inner()inner1: ƒ inner1()inner2: ƒ inner2()__proto__: Object
+function demo(){
+    var a = 0;
+    console.log(a);
+}
+undefined
+demo();
+VM10072:3 0
+undefined
+function Outer(){
+    var a = 200;
+    function inner(){
+        console.log('inner function ',a);
+    }
+     
+    return inner;   
+}
+undefined
+temp = Outer();
+ƒ inner(){
+        console.log('inner function ',a);
+    }
+temp
+ƒ inner(){
+        console.log('inner function ',a);
+    }
+temp();
+VM10491:4 inner function  200
+undefined
+var count = 1353321;
+undefined
+function increase(){
+    console.log(count);
+    count++;
+}
+undefined
+increase();
+VM10844:2 1353321
+undefined
+increase();
+VM10844:2 1353322
+undefined
+increase();
+VM10844:2 1353323
+undefined
+increase();
+VM10844:2 1353324
+undefined
+increase();
+VM10844:2 1353325
+undefined
+count = -1200;
+-1200
+increase();
+VM10844:2 -1200
+undefined
+increase();
+VM10844:2 -1199
+undefined
+increase();
+VM10844:2 -1198
+undefined
+increase();
+VM10844:2 -1197
+undefined
+//closure
+undefined
+function counter(){
+    count = 1231;
+    function increase(){
+        console.log(count);
+        count++;
+    }
+    return increase;
+}
+undefined
+increase = counter();
+ƒ increase(){
+        console.log(count);
+        count++;
+    }
+increase();
+VM11263:4 1231
+undefined
+increase();
+VM11263:4 1232
+undefined
+increase();
+VM11263:4 1233
+undefined
+increase();
+VM11263:4 1234
+undefined
+counter = 10;
+10
+//IIFE(Immediate Invoke Function expression)
+undefined
+increase = (function(){
+    count = 1231;
+    function increase(){
+        console.log(count);
+        count++;
+    }
+    return increase;
+})();
+ƒ increase(){
+        console.log(count);
+        count++;
+    }
+increase();
+VM11704:4 1231
+undefined
+increase();
+VM11704:4 1232
+undefined
+increase();
+VM11704:4 1233
+undefined
+increase();
+VM11704:4 1234
+undefined
+increase();
+VM11704:4 1235
+undefined
+//Scope
+undefined
+var temp2;
+undefined
+temp2;
+undefined
+undefined;
+undefined
+console.log(temp3);
+var temp3;
+VM12367:1 undefined
+undefined
+console.log(temp4);
+let temp3;
+VM12437:1 Uncaught SyntaxError: Identifier 'temp3' has already been declared
+    at <anonymous>:1:1
+(anonymous) @ VM12437:1
+console.log(temp4);
+let temp4;
+VM12453:1 Uncaught ReferenceError: temp4 is not defined
+    at <anonymous>:1:13
+(anonymous) @ VM12453:1
