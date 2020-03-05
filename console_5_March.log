@@ -1,0 +1,432 @@
+//object literal form
+var obj = {};
+undefined
+var object = new Object();
+undefined
+object
+{}
+obj
+{}
+object.id = 101;
+101
+object
+{id: 101}id: 101__proto__: Object
+delete object.id;
+true
+object;
+{}
+var a= 10;
+undefined
+typeof a;
+"number"
+var a = new Number(10);
+undefined
+a
+Number {10}__proto__: Number[[PrimitiveValue]]: 10
+str = '  Hello Computer  ';
+"  Hello Computer  "
+typeof str;
+"string"
+typeof a;
+"object"
+str = new String('Hello');
+String {"Hello"}0: "H"1: "e"2: "l"3: "l"4: "o"length: 5__proto__: String[[PrimitiveValue]]: "Hello"
+str[0]
+"H"
+b= true;
+true
+typeof b 
+"boolean"
+b = new Boolean(true);
+Boolean {true}__proto__: Boolean[[PrimitiveValue]]: true
+typeof b 
+"object"
+function demo(){
+    console.log('Demo Function');
+}
+undefined
+var obj = new demo();
+VM3874:2 Demo Function
+undefined
+obj
+demo {}__proto__: Object
+obj.id = 101;
+101
+obj
+demo {id: 101}id: 101__proto__: Object
+function Student(id,name){
+    this.id  = id;
+    this.name = name;
+}
+undefined
+obj = new Student(101,'Vikrant');
+Student {id: 101, name: "Vikrant"}id: 101name: "Vikrant"__proto__: Object
+function Student(id,name,address){
+    this.id  = id;
+    this.name = name;
+//     this.address = address==undefined?'':address;
+    address != undefined ?this.address = address: '';
+}
+undefined
+obj = new Student(101,'Vikrant');
+Student {id: 101, name: "Vikrant"}id: 101name: "Vikrant"__proto__: Object
+obj = new Student(101,'Vikrant','rohini');
+Student {id: 101, name: "Vikrant", address: "rohini"}
+function Student(id,name,address){
+    this.id  = id;
+    this.name = name;
+    this.address = address==undefined?'':address;   
+}
+undefined
+obj = new Student(101,'Vikrant');
+Student {id: 101, name: "Vikrant", address: ""}
+obj = new Student(101,'Vikrant','rohini');
+Student {id: 101, name: "Vikrant", address: "rohini"}
+function Student(id,name,address){
+    this.id  = id;
+    this.name = name;
+    this.address = address==undefined?'':address;   
+    this.show = function(){
+        console.log(this.id,this.name);
+    }
+}
+undefined
+obj = new Student(101,'Vikrant','rohini');
+Student {id: 101, name: "Vikrant", address: "rohini", show: ƒ}id: 101name: "Vikrant"address: "rohini"show: ƒ ()__proto__: Object
+function Student(id,name,address){
+    this.id  = id;
+    this.name = name;
+    this.address = address==undefined?'':address;   
+
+}
+undefined
+console.dir(Student);
+VM5295:1 ƒ Student(id,name,address)length: 3name: "Student"arguments: nullcaller: nullprototype: {constructor: ƒ}constructor: ƒ Student(id,name,address)__proto__: Object__proto__: ƒ ()[[FunctionLocation]]: VM5227:1[[Scopes]]: Scopes[1]
+undefined
+Student.prototype.show = function(){
+    console.log(this.id,this.name);
+}
+ƒ (){
+    console.log(this.id,this.name);
+}
+obj = new Student(101,'Vikrant','rohini');
+Student {id: 101, name: "Vikrant", address: "rohini"}id: 101name: "Vikrant"address: "rohini"__proto__: Object
+obj.show();
+VM5549:2 101 "Vikrant"
+undefined
+Student.prototype.display = function(){
+    console.log(this.id);
+}
+ƒ (){
+    console.log(this.id);
+}
+obj.display();
+VM5745:2 101
+undefined
+obj.show();
+VM5549:2 101 "Vikrant"
+undefined
+class Employee{
+    constructor(id,name){
+        this.id = id;
+        this.name = name;
+    }
+
+    show(){
+}
+VM6050:8 Uncaught SyntaxError: Unexpected end of input
+class Employee{
+    constructor(id,name){
+        this.id = id;
+        this.name = name;
+    }
+
+    show(){
+        console.log(this.id);
+    }
+}
+undefined
+obj = new Employee(101,'Vikrant');
+Employee {id: 101, name: "Vikrant"}id: 101name: "Vikrant"__proto__: Object
+//Inheritance
+undefined
+class FullTimeEmployee{
+    constructor(id,name,hours){
+        this.hours = hours;
+    }
+    show1(){
+        console.log(this.hours);
+    }
+}
+undefined
+obj = new FullTimeEmployee(101,'Vikrant',15);
+FullTimeEmployee {hours: 15}
+class FullTimeEmployee extends Employee{
+    constructor(id,name,hours){
+        this.hours = hours;
+    }
+    show1(){
+        console.log(this.hours);
+    }
+}
+undefined
+obj = new FullTimeEmployee(101,'Vikrant',15);
+VM6766:3 Uncaught ReferenceError: Must call super constructor in derived class before accessing 'this' or returning from derived constructor
+    at new FullTimeEmployee (<anonymous>:3:9)
+    at <anonymous>:1:7
+FullTimeEmployee @ VM6766:3
+(anonymous) @ VM6775:1
+class FullTimeEmployee extends Employee{
+    constructor(hours){
+        super();
+        this.hours = hours;
+    }
+    show1(){
+        console.log(this.hours);
+    }
+}
+undefined
+obj = new FullTimeEmployee(15);
+FullTimeEmployee {id: undefined, name: undefined, hours: 15}
+class FullTimeEmployee extends Employee{
+    constructor(id,name,hours){
+        super();
+        this.id = id;
+        this.name = name;
+        this.hours = hours;
+    }
+    show1(){
+        console.log(this.hours);
+    }
+}
+undefined
+class FullTimeEmployee extends Employee{
+    constructor(id,name,hours){
+        super();
+        this.id = id;
+        this.name = name;
+        this.hours = hours;
+    }
+    show1(){
+        console.log(this.hours);
+    }
+}
+undefined
+obj = new FullTimeEmployee(101,'Vikrant',15);
+FullTimeEmployee {id: 101, name: "Vikrant", hours: 15}id: 101name: "Vikrant"hours: 15__proto__: Employee
+class FullTimeEmployee extends Employee{
+    constructor(id,name,hours){
+        super(id,name);
+        this.hours = hours;
+    }
+    show1(){
+        console.log(this.hours);
+    }
+}
+undefined
+obj = new FullTimeEmployee(101,'Vikrant',15);
+FullTimeEmployee {id: 101, name: "Vikrant", hours: 15}
+obj.show();
+VM6110:8 101
+undefined
+obj.show1();
+VM7179:7 15
+undefined
+class Demo extends FullTimeEmployee{
+    disp(){
+        console.log('Display of Demo');
+    }
+}
+undefined
+var obj = new Demo();
+undefined
+obj
+Demo {id: undefined, name: undefined, hours: undefined}
+obj.id = 101;
+101
+obj
+Demo {id: 101, name: undefined, hours: undefined}
+class PartTimeEmployee extends Employee{
+    show1(){
+        console.log('Show one of Part time');
+    }
+}
+undefined
+obj = new PartTimeEmployee();
+PartTimeEmployee {id: undefined, name: undefined}
+class Demo{
+    static let a = 10;
+    constructor(name){
+        this.name = name;
+    }
+}
+VM8144:2 Uncaught SyntaxError: Unexpected identifier
+class Demo{
+    static a = 10;
+    constructor(name){
+        this.name = name;
+    }
+}
+undefined
+obj = new Demo('Rahul');
+Demo {name: "Rahul"}name: "Rahul"__proto__: Object
+obj.name;
+"Rahul"
+Demo.a
+10
+Demo.a = 20;
+20
+Demo.a
+20
+class Demo{
+    static a = 10;
+    constructor(name){
+        this.name = name;
+    }
+    show(){
+        console.log(this.name,a);
+    }
+}
+undefined
+obj = new Demo('Rahul');
+Demo {name: "Rahul"}
+obj.show();
+VM8517:7 Rahul Number {10}
+undefined
+obj1 = new Demo('Rohit');
+Demo {name: "Rohit"}
+obj1.show();
+VM8517:7 Rohit Number {10}
+undefined
+Demo.a = 20;
+20
+obj1.show();
+VM8517:7 Rohit Number {10}__proto__: Number[[PrimitiveValue]]: 10
+undefined
+obj1.show();
+VM8517:7 Rohit Number {10}
+undefined
+Demo.a;
+20
+//(...) spread operator;
+undefined
+arr = [10,20,30,40];
+(4) [10, 20, 30, 40]
+arr1= [11,22,55,77];
+(4) [11, 22, 55, 77]
+arr2 = [arr,arr1];
+(2) [Array(4), Array(4)]0: (4) [10, 20, 30, 40]0: 101: 202: 303: 40length: 4__proto__: Array(0)1: (4) [11, 22, 55, 77]length: 2__proto__: Array(0)
+arr= [];
+[]
+arr2
+(2) [Array(4), Array(4)]0: (4) [10, 20, 30, 40]1: (4) [11, 22, 55, 77]length: 2__proto__: Array(0)
+arr2[0];
+(4) [10, 20, 30, 40]
+arr2[0][1];
+20
+arr2 = [...arr,...arr1,100,200];
+(6) [11, 22, 55, 77, 100, 200]
+arr2
+(6) [11, 22, 55, 77, 100, 200]
+obj = {id:101,name:'rahul'};
+{id: 101, name: "rahul"}
+obj1 = {age:23}
+{age: 23}
+obj2 = {obj,obj1};
+{obj: {…}, obj1: {…}}
+obj2
+{obj: {…}, obj1: {…}}obj: {id: 101, name: "rahul"}obj1: {age: 23}__proto__: Object
+obj = {};
+{}
+obj2
+{obj: {…}, obj1: {…}}obj: {id: 101, name: "rahul"}id: 101name: "rahul"__proto__: Objectobj1: {age: 23}__proto__: Object
+obj = {id:101,name:'rahul'};
+{id: 101, name: "rahul"}
+obj2 = {...obj,...obj1};
+{id: 101, name: "rahul", age: 23}
+obj2 = {...obj,...obj1,time:15,id:105};
+{id: 105, name: "rahul", age: 23, time: 15}
+const a = 10;
+VM10016:1 Uncaught SyntaxError: Identifier 'a' has already been declared
+    at <anonymous>:1:1
+(anonymous) @ VM10016:1
+const temp1 = 10;
+undefined
+temp1 = 20;
+VM10098:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:7
+(anonymous) @ VM10098:1
+const list = [12,31,14,51];
+undefined
+list = [];
+VM10232:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:6
+(anonymous) @ VM10232:1
+list.push(100,200);
+6
+list
+(6) [12, 31, 14, 51, 100, 200]
+list[0] = 23;
+23
+list
+(6) [23, 31, 14, 51, 100, 200]
+const studentObject = {idL:101};
+undefined
+studentObject.name = 'Vikrant';
+"Vikrant"
+studentObject
+{idL: 101, name: "Vikrant"}
+studentObject = 10;
+VM10688:1 Uncaught TypeError: Assignment to constant variable.
+    at <anonymous>:1:15
+(anonymous) @ VM10688:1
+arr1
+(4) [11, 22, 55, 77]
+function print(num){
+    console.log(num);
+}
+undefined
+arr1.forEach(print);
+VM10981:2 11
+VM10981:2 22
+VM10981:2 55
+VM10981:2 77
+undefined
+arr1.forEach(function(element){
+    console.log(element);
+});
+VM11183:2 11
+VM11183:2 22
+VM11183:2 55
+VM11183:2 77
+undefined
+arr1.find((element)=>{
+    return element == 55;
+});
+55
+arr1.find((element)=>{
+    return element == 51;
+});
+undefined
+arr1.findIndex((element)=>{
+    return element == 55;
+});
+2
+arr1.findIndex((element)=>{
+    return element == 51;
+});
+-1
+arr1.push(4,5,-12);
+7
+arr1
+(7) [11, 22, 55, 77, 4, 5, -12]
+arr1.sort();
+(7) [-12, 11, 22, 4, 5, 55, 77]
+arr1.sort(function(first,second){
+    return first-second;
+});
+(7) [-12, 4, 5, 11, 22, 55, 77]
+arr1.sort(function(first,second){
+    return second-first;
+});
+(7) [77, 55, 22, 11, 5, 4, -12]
