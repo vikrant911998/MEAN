@@ -1,0 +1,254 @@
+//Async
+undefined
+console.log('Hello');
+VM202:1 Hello
+undefined
+setTimeout(function(){
+    console.log('Inside Set Timeout');
+},3000);
+1
+VM379:2 Inside Set Timeout
+function demo(num){
+    console.log('Inside Demo');
+    return num*num;
+}
+undefined
+demo(2);
+VM540:2 Inside Demo
+4
+setTimeout(()=>{
+    demo(23);
+},3000);
+2
+VM540:2 Inside Demo
+temp = setTimeout(function(){
+   console.log('Inside Set TimeOUt');
+    return 10;
+},4000);
+3
+VM909:2 Inside Set TimeOUt
+temp
+3
+function AsyncTask(num){
+    setTimeout(function(){
+        console.log('inside Function');
+        return 230;
+    },4000);
+}
+undefined
+function demo(){
+    return 10;
+}
+undefined
+temp = demo();
+10
+temp1 = AsyncTask(10);
+undefined
+VM1233:3 inside Function
+temp1
+undefined
+//We cannot return from a function performing async task.
+undefined
+//Callbacks
+undefined
+function callback1(num){
+    console.log(num);
+}
+undefined
+function AsyncTask(num,cb){ //5,callback1
+    setTimeout(function(){
+        console.log('inside Function');
+        cb(num*num); //callback1(5*5);
+    },4000);
+}
+
+AsyncTask(5,callback1);
+undefined
+VM2372:3 inside Function
+VM2071:2 25
+var result = 0;
+function callback1(num){
+    console.log(num);
+    result = num;
+}
+undefined
+AsyncTask(5,callback1);
+undefined
+VM2372:3 inside Function
+VM2506:3 25
+result
+25
+result = -23;
+-23
+//callback Hell
+undefined
+// It arises when a callback function  itself performing an async task.
+undefined
+//Promises
+undefined
+Promise
+ƒ Promise() { [native code] }
+function AsyncTask(num){
+    let promise = new Promise(function(resolve,reject){
+        setTimeout(function(){
+            if(num<5){
+                reject(-1);
+            }
+            else{
+                resolve(num*num);
+            }
+        },4000);
+    });
+
+    return promise;
+}
+
+let pr = AsyncTask(12);
+pr.then(data=>console.log('Data is ',data);).catch(error=>console.log(error));
+
+VM4138:17 Uncaught SyntaxError: missing ) after argument list
+function AsyncTask(num){
+    let promise = new Promise(function(resolve,reject){
+        setTimeout(function(){
+            if(num<5){
+                reject(-1);
+            }
+            else{
+                resolve(num*num);
+            }
+        },4000);
+    });
+
+    return promise;
+}
+
+let pr = AsyncTask(12);
+pr.then(data=>console.log('Data is ',data)).catch(error=>console.log(error));
+
+Promise {<pending>}__proto__: Promise[[PromiseStatus]]: "resolved"[[PromiseValue]]: undefined
+VM4169:17 Data is  144
+pr
+Promise {<resolved>: 144}__proto__: Promise[[PromiseStatus]]: "resolved"[[PromiseValue]]: 144
+function AsyncTask(num){
+    let promise = new Promise(function(resolve,reject){
+        setTimeout(function(){
+            if(num<5){
+                reject(-1);
+            }
+            else{
+                resolve(num*num);
+            }
+        },4000);
+    });
+
+    return promise;
+}
+
+let pr = AsyncTask(4);
+pr.then(data=>console.log('Data is ',data)).catch(error=>console.log(error));
+
+Promise {<pending>}
+VM4355:17 -1
+//Independent Request and Async
+undefined
+let p1 = AsyncTask(34);
+let p2 = AsyncTask(6);
+let p3 = AsyncTask(12);
+
+p1.then(data1=>{
+    p2.then(data2=>{
+       p3.then(data3=>{
+            console.log(data1,data2,data3);
+        }).catch() 
+    }).catch()
+}).catch();
+Promise {<pending>}
+VM5192:8 1156 36 144
+Promise.all([AsyncTask(34),AsyncTask(6),AsyncTask(12)]).then(data=>{
+    console.log('data is ',data);
+}).catch(error=>console.log('Error is ',err));
+Promise {<pending>}
+VM5836:2 data is  (3) [1156, 36, 144]0: 11561: 362: 144length: 3__proto__: Array(0)
+//dependent Request //async
+undefined
+async and await
+VM6193:1 Uncaught SyntaxError: Unexpected identifier
+async function demo(){
+    return 10;
+}
+console.log(demo());
+VM6318:4 Promise {<resolved>: 10}__proto__: Promise[[PromiseStatus]]: "resolved"[[PromiseValue]]: 10
+undefined
+function Dependent(num){
+    let r1 = await AsyncTask(num);
+    console.log(r1);
+    let r2 = await AsyncTask(r1);
+    console.log(r2);
+    let r3 = await AsyncTask(r2);
+    console.log(r3);
+}
+
+Dependent(6);
+VM7001:2 Uncaught SyntaxError: await is only valid in async function
+async function Dependent(num){
+    let r1 = await AsyncTask(num);
+    console.log(r1);
+    let r2 = await AsyncTask(r1);
+    console.log(r2);
+    let r3 = await AsyncTask(r2);
+    console.log(r3);
+}
+
+Dependent(6);
+Promise {<pending>}
+VM7027:3 36
+VM7027:5 1296
+VM7027:7 1679616
+const url = 'https://raw.githubusercontent.com/brainmentorspvtltd/myserverdata/master/items.json';
+
+function fetchData(url){
+    let promise = fetch(url);
+    promise.then(response=>{
+        console.log('Response ',response);    
+    })
+    .catch(err=>console.log('error'))
+}
+fetchData(url);
+undefined
+VM7938:6 Response  Response {type: "cors", url: "https://raw.githubusercontent.com/brainmentorspvtltd/myserverdata/master/items.json", redirected: false, status: 200, ok: true, …}type: "cors"url: "https://raw.githubusercontent.com/brainmentorspvtltd/myserverdata/master/items.json"redirected: falsestatus: 200ok: truestatusText: "OK"headers: Headers {}__proto__: Headersbody: (...)bodyUsed: false__proto__: Response
+const url = 'https://raw.githubusercontent.com/brainmentorspvtltd/myserverdata/master/items.json';
+
+function fetchData(url){
+    let promise = fetch(url);
+    promise.then(response=>{
+        response.json().then(data=>console.log(data));
+    })
+    .catch(err=>console.log('error'))
+}
+fetchData(url);
+VM8111:1 Uncaught SyntaxError: Identifier 'url' has already been declared
+    at <anonymous>:1:1
+(anonymous) @ VM8111:1
+
+
+function fetchData(url){
+    let promise = fetch(url);
+    promise.then(response=>{
+        response.json().then(data=>console.log(data));
+    })
+    .catch(err=>console.log('error'))
+}
+fetchData(url);
+undefined
+VM8127:6 {items: Array(2)}items: (2) [{…}, {…}]0: {id: 1001, name: "Cheese Pizza", price: 200, quantity: 2, desc: "", …}id: 1001name: "Cheese Pizza"price: 200quantity: 2desc: ""likes: 100__proto__: Object1: {id: 1002, name: "Extra Cheese Pizza", price: 300, quantity: 2, desc: "", …}length: 2__proto__: Array(0)__proto__: Object
+
+
+function fetchData(url){
+    let promise = fetch(url);
+    promise.then(response=>response.json())
+    .then(data=>console.log('data is ',data))
+    .catch(err=>console.log('error'))
+}
+fetchData(url);
+undefined
+VM8731:6 data is  {items: Array(2)}items: (2) [{…}, {…}]0: {id: 1001, name: "Cheese Pizza", price: 200, quantity: 2, desc: "", …}1: {id: 1002, name: "Extra Cheese Pizza", price: 300, quantity: 2, desc: "", …}length: 2__proto__: Array(0)__proto__: Object
