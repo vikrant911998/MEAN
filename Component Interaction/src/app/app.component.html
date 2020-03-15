@@ -1,0 +1,44 @@
+<h1>App Component</h1>
+<h3>{{ student_name }}</h3>
+<button (click)="getusername()">Get Username</button>
+<app-first
+  demo1="services"
+  [title]="title"
+  (student_name)="receiveStudentName($event)"
+></app-first>
+
+<!-- <div>
+  <h1>App Component</h1>
+  <h3>{{ today | date: "short" }}</h3>
+  <h2 *ngIf="hiddenAttribute">Hidden = {{ hiddenAttribute }}</h2>
+  <button (click)="toggle()">Click Me</button>
+
+  <p *ngFor="let country of arr">
+    {{ country | titlecase }}
+  </p>
+
+  <span [ngSwitch]="num">
+    <p *ngSwitchCase="10">
+      {{ num | currency: "EUR" }}
+    </p>
+    <p *ngSwitchCase="15">
+      {{ num | currency }}
+    </p>
+    <p *ngSwitchDefault>
+      No Number Found.
+    </p>
+  </span>
+
+  <h3 [ngStyle]="{ 'background-color': 'yellow', border: '2px solid red' }">
+    Third Heading
+  </h3>
+
+  <h3 [ngClass]="{ color: true, bg: hiddenAttribute }">Fourth Heading</h3>
+
+<h3>{{ title }}</h3>
+  <h3 [hidden]="hiddenAttribute">Hidden Property</h3>
+  <input type="text" (change)="getValue($event)" />
+  <button (click)="toggle()">Click Me</button> 
+  <button (click)="hiddenAttribute = !hiddenAttribute">Click Me</button> 
+  <button [disabled]="hiddenAttribute" >Click Me</button> 
+</div> -->
