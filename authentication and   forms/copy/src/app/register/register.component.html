@@ -1,0 +1,32 @@
+<div class="container w-50">
+  <!-- form starts here -->
+  <form>
+    <!-- Username Section -->
+    <div class="form-group">
+      <label for="">Username</label>
+      <input type="text" class="form-control" [(ngModel)]="txtusername" />
+    </div>
+    <!-- Email Section -->
+    <div class="form-group">
+      <label for="">Email</label>
+      <input type="text" class="form-control" [(ngModel)]="txtemail" />
+    </div>
+    <!-- Password Section -->
+    <div class="form-group">
+      <label for="">Password</label>
+      <input type="text" class="form-control" [(ngModel)]="txtpassword" />
+    </div>
+    <!-- Confirm Password Section -->
+    <div class="form-group">
+      <label for="">Confirm Password</label>
+      <input type="text" class="form-control" [(ngModel)]="txtcpassword" />
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary mr-2" (click)="register_user()">
+        Sign Up
+      </button>
+      <button class="btn btn-primary">Reset</button>
+    </div>
+    <!-- form ends here -->
+  </form>
+</div>
