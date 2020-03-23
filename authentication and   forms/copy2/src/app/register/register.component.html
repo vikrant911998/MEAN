@@ -1,0 +1,89 @@
+<div class="container w-50">
+  <!-- form starts here -->
+  <form [formGroup]="registerForm" (ngSubmit)="register_user()">
+    <!-- Username Section -->
+    <div class="form-group">
+      <label for=""><fa-icon [icon]="faCoffee"></fa-icon> Username</label>
+      <input type="text" class="form-control" formControlName="username" />
+      <span
+        *ngIf="
+          registerForm.get('username').touched &&
+          !registerForm.get('username').valid
+        "
+        class="text-danger help-block"
+        >Please enter a valid username !</span
+      >
+    </div>
+    <!-- Email Section -->
+    <div class="form-group">
+      <label for="">Email</label>
+      <input type="email" class="form-control" formControlName="email" />
+      <span
+        *ngIf="
+          registerForm.get('email').touched && registerForm.get('email').invalid
+        "
+        class="text-danger help-block"
+        >Please enter a valid email !</span
+      >
+    </div>
+
+    <!-- Password and Confirm Password Section -->
+    <div formGroupName="passwordData">
+      <!-- Password Section -->
+      <div class="form-group">
+        <label for="">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="password"
+        />
+        <span
+          *ngIf="
+            registerForm.get('passwordData.password').touched &&
+            registerForm.get('passwordData.password').invalid
+          "
+          class="text-danger help-block"
+          >Please enter a valid password !</span
+        >
+      </div>
+      <!-- Confirm Password Section -->
+      <div class="form-group">
+        <label for="">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          formControlName="cpassword"
+        />
+        <span
+          *ngIf="
+            registerForm.get('passwordData.cpassword').touched &&
+            registerForm.get('passwordData.cpassword').invalid
+          "
+          class="text-danger help-block"
+          >Please enter a valid confirm password !</span
+        >
+      </div>
+      <span
+        *ngIf="
+          registerForm.get('passwordData.password').touched &&
+          registerForm.get('passwordData.cpassword').touched &&
+          registerForm.get('passwordData.password').value !=
+            registerForm.get('passwordData.cpassword').value
+        "
+        class="text-danger help-block"
+        >Password and Confirm Password field should be same !</span
+      >
+    </div>
+    <!-- Password and Confirm Password Section ends here -->
+
+    <div class="form-group">
+      <button [disabled]="registerForm.invalid" class="btn btn-primary mr-2">
+        Sign Up
+      </button>
+      <button class="btn btn-primary" type="button" (click)="resetForm()">
+        Reset
+      </button>
+    </div>
+    <!-- form ends here -->
+  </form>
+</div>
